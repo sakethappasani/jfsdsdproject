@@ -12,7 +12,7 @@
 	<groupId>com.klef.jfsd.springboot</groupId>
 	<artifactId>SDPProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>SDPProject</name>
 	<description>JFSD SDP Project (Student Extracurricular Activity Management
 		System)</description>
