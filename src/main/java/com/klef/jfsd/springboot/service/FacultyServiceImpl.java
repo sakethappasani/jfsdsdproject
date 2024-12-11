@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.klef.jfsd.springboot.model.Event;
 import com.klef.jfsd.springboot.model.EventRegistration;
+import com.klef.jfsd.springboot.model.Faculty;
 import com.klef.jfsd.springboot.model.FacultyEventMapping;
 import com.klef.jfsd.springboot.model.Student;
 import com.klef.jfsd.springboot.model.StudentEventAttendance;
 import com.klef.jfsd.springboot.repository.EventRepository;
 import com.klef.jfsd.springboot.repository.FacultyEventMappingRepository;
+import com.klef.jfsd.springboot.repository.FacultyRepository;
 import com.klef.jfsd.springboot.repository.RegistrationRepository;
 import com.klef.jfsd.springboot.repository.StudentEventAttendanceRepository;
 import com.klef.jfsd.springboot.repository.StudentRepository;
@@ -30,6 +32,8 @@ public class FacultyServiceImpl implements FacultyService
 	private RegistrationRepository registrationRepository;
 	@Autowired
 	private StudentEventAttendanceRepository attendanceRepository;
+	@Autowired
+	private FacultyRepository facultyRepository;
 	
 	@Override
 	public List<FacultyEventMapping> viewMyEvents(long fid) 
@@ -73,5 +77,46 @@ public class FacultyServiceImpl implements FacultyService
 	{
 		return studentRepository.findById(sid).get();
 	}
+	
+	@Override
+	public boolean isFacultyContactAvailable(String contact) 
+	{
+		Faculty f =  facultyRepository.findByContact(contact);
+		if(f == null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
+	@Override
+	public boolean isFacultyEmailAvailable(String email) 
+	{
+		Faculty f =  facultyRepository.findByEmail(email);
+		if(f == null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	@Override
+	public String updateFaculty(Faculty f) 
+	{
+		facultyRepository.save(f);
+		return "Faculty Updated Successfully";
+	}
+	
+	@Override
+	public Faculty viewFacultyByID(long fid)
+	{
+		return facultyRepository.findById(fid).get();
+	}
+	
 }

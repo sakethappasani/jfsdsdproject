@@ -59,6 +59,9 @@ public class MainController
 		{
 			session.setAttribute("admin", admin);
 			mv.setViewName("adminhome");
+			mv.addObject("studentCount", mainService.getStudentCount());
+			mv.addObject("facultyCount",  mainService.getFacultyCount());
+			mv.addObject("eventCount", mainService.getEventCount());
 		}
 		else if(student != null)
 		{

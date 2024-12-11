@@ -1,5 +1,7 @@
 package com.klef.jfsd.springboot.controller;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,7 @@ import com.klef.jfsd.springboot.model.StudentEventAttendance;
 import com.klef.jfsd.springboot.service.FacultyService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -135,4 +138,69 @@ public class FacultyController
 		mv.addObject("flag", true);
 		return mv;
 	}
+	
+	@GetMapping("facultyupdatemyprofile")
+	public ModelAndView facultyupdatemyprofile()
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("facultyupdatemyprofile");
+		return mv;
+	}
+	
+	@PostMapping("facultysaveupdate")
+	public ModelAndView editFaculty(HttpServletRequest request, HttpServletResponse response) {
+	    long fid = Long.parseLong(request.getParameter("fid"));
+	    String fname = request.getParameter("fname");
+	    String fdept = request.getParameter("fdept");
+	    String femail = request.getParameter("femail");
+	    String fcontact = request.getParameter("fcontact");
+	    String fgender = request.getParameter("fgender");
+
+	    ModelAndView mv = new ModelAndView();
+	    boolean isContactAvailable = facultyService.isFacultyContactAvailable(fcontact);
+	    boolean isEmailAvailable = facultyService.isFacultyEmailAvailable(femail);
+	    Faculty faculty = facultyService.viewFacultyByID(fid);
+
+	    boolean isEmailChanged = !faculty.getEmail().equals(femail);
+	    boolean isContactChanged = !faculty.getContact().equals(fcontact);
+
+	    if (faculty.getId() == fid && faculty.getName().equals(fname)
+	            && faculty.getDepartment().equals(fdept) && faculty.getGender().equals(fgender)
+	            && !isEmailChanged && !isContactChanged) {
+	        return facultyRedirectWithMessage(mv, fid, "No Changes Detected");
+	    }
+
+	    if (isContactChanged && !isContactAvailable) {
+	        return facultyRedirectWithMessage(mv, fid, "Contact Already Exists");
+	    }
+	    if (isEmailChanged && !isEmailAvailable) {
+	        return facultyRedirectWithMessage(mv, fid, "Email Already Exists");
+	    }
+
+	    faculty.setName(fname);
+	    faculty.setDepartment(fdept);
+	    faculty.setGender(fgender);
+	    if (isEmailChanged) {
+	        faculty.setEmail(femail);
+	    }
+	    if (isContactChanged) {
+	        faculty.setContact(fcontact);
+	    }
+
+	    String updateMessage = facultyService.updateFaculty(faculty);
+	    return facultyRedirectWithMessage(mv, fid, updateMessage);
+	}
+
+	private ModelAndView facultyRedirectWithMessage(ModelAndView mv, long fid, String message) {
+	    try {
+	        String encodedMessage = URLEncoder.encode(message, StandardCharsets.UTF_8.toString());
+	        mv.setViewName("redirect:/facultymyprofile?message=" + encodedMessage); // Fixed redirect path
+	        
+	    } catch (Exception e) {
+	        mv.setViewName("exception");
+	        mv.addObject("message", e.getMessage());
+	    }
+	    return mv;
+	}
+	
 }

@@ -159,7 +159,7 @@ if(faculty == null)
             <p class="value"><c:out value="${faculty.contact}"></c:out></p>
 
             <!-- Update Profile Button -->
-            <a href="updateProfile" class="update-btn">Update Profile</a>
+            <a href="facultyupdatemyprofile" class="update-btn">Update Profile</a>
         </div>
     </div>
 

@@ -9,4 +9,7 @@ public interface MainService
 	public Admin checkAdminLogin(String username, String password);
 	public Student checkStudentLogin(String id, String password);
 	public Faculty checkfacultylogin(String id, String pwd);
+	public long getStudentCount();
+	public long getFacultyCount();
+	public long getEventCount();
 }

@@ -3,96 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ActivityHub - Student Activity Management</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="logland.css">
+    <title>ActivityHub - Student Extracurricular Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <svg xmlns="http://www.w3.org/2000/svg" class="nav-logo" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                <span>ActivityHub</span>
-            </div>
-            <div class="nav-links">
-                <a href="login" class="nav-button">Login</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm" style="box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#" style="font-size: 1.25rem;">
+                <i class="bi bi-grid-3x3-gap-fill me-2"></i>
+                Student Extracurricular Activity Management System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center" style="gap: 1rem;">
+                    <li class="nav-item">
+                        <a class="btn btn-primary text-white px-4 rounded-pill" href="login" style="font-size: 0.9rem; font-weight: 500;">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Carousel -->
-    <div class="hero-section">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80')">
-                    <div class="slide-content">
-                        <h1>Manage Your Student Activities with Ease</h1>
-                        <p>Track, organize, and excel in your extracurricular journey with our comprehensive management system.</p>
-                        <a href="login" class="cta-button">Start Your Journey</a>
-                    </div>
-                </div>
-                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80')">
-                    <div class="slide-content">
-                        <h1>Transform Your Academic Journey</h1>
-                        <p>Join thousands of students who are making the most of their extracurricular activities.</p>
-                        <a href="login.html" class="cta-button">Get Started Today</a>
-                    </div>
-                </div>
-                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80')">
-                    <div class="slide-content">
-                        <h1>Achieve More Together</h1>
-                        <p>Connect with peers and create lasting impact through organized activities.</p>
-                        <a href="login.html" class="cta-button">Join Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+    <!-- Hero Section -->
+    <section class="hero-section text-white text-center" style="background-color: #4f46e5; padding-top: 6rem; padding-bottom: 5rem;">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">
+                Manage Your Campus Life
+                <br>
+                <span class="text-warning">Like Never Before</span>
+            </h1>
+            <p class="lead mb-5">
+                One platform for all your extracurricular activities,
+                <br>
+                events, and student organizations.
+            </p>
+            <button class="btn btn-light btn-lg px-5 rounded-pill fw-semibold" style="color: #4f46e5;">Get Started</button>
         </div>
-    </div>
+    </section>
 
     <!-- Features Section -->
-    <section class="features-section">
+    <section class="features-section bg-light py-5" style="background-color: #f9fafb;">
         <div class="container">
-            <div class="section-header">
-                <h2>Everything You Need</h2>
-                <p>Comprehensive tools to manage your extracurricular activities</p>
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold">Everything You Need</h2>
+                <p class="lead text-muted">Streamline your student activities with our powerful features</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    <h3>Event Management</h3>
-                    <p>Schedule and manage all your extracurricular activities efficiently</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card text-center p-4" style="background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                        <i class="bi bi-calendar-event fs-1 text-primary"></i>
+                        <h3 class="mt-3">Event Management</h3>
+                        <p class="text-muted">Schedule and manage all your club events in one place</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    <h3>Team Collaboration</h3>
-                    <p>Connect with peers and form activity groups seamlessly</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card text-center p-4" style="background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                        <i class="bi bi-people fs-1 text-primary"></i>
+                        <h3 class="mt-3">Club Directory</h3>
+                        <p class="text-muted">Discover and join clubs that match your interests</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                    <h3>Achievement Tracking</h3>
-                    <p>Record and showcase your extracurricular accomplishments</p>
-                </div>
-                <div class="feature-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                    <h3>Progress Monitoring</h3>
-                    <p>Track your participation and growth in various activities</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card text-center p-4" style="background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); border-radius: 0.5rem;">
+                        <i class="bi bi-trophy fs-1 text-primary"></i>
+                        <h3 class="mt-3">Achievement Tracking</h3>
+                        <p class="text-muted">Track your participation and earn recognition</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper-container', {
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            loop: true,
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

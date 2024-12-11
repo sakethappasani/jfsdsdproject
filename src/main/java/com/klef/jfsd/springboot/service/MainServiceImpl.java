@@ -7,6 +7,7 @@ import com.klef.jfsd.springboot.model.Admin;
 import com.klef.jfsd.springboot.model.Faculty;
 import com.klef.jfsd.springboot.model.Student;
 import com.klef.jfsd.springboot.repository.AdminRepository;
+import com.klef.jfsd.springboot.repository.EventRepository;
 import com.klef.jfsd.springboot.repository.FacultyRepository;
 import com.klef.jfsd.springboot.repository.StudentRepository;
 
@@ -20,6 +21,8 @@ public class MainServiceImpl implements MainService
 	private FacultyRepository facultyRepository;
 	@Autowired
 	private StudentRepository studentRepository;
+	@Autowired
+	private EventRepository eventRepository;
 	
 	@Override
 	public Admin checkAdminLogin(String username, String password) 
@@ -54,5 +57,21 @@ public class MainServiceImpl implements MainService
 			return null;
 		}
 	}
-	
+	@Override
+	public long getStudentCount() 
+	{
+		return studentRepository.count();
+	}
+
+	@Override
+	public long getFacultyCount()
+	{
+		return facultyRepository.count();
+	}
+
+	@Override
+	public long getEventCount()
+	{
+		return eventRepository.count();
+	}
 }
